@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Complex Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Your Website</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <h2>Welcome to Our Website!</h2>
+            <p>This is the homepage content.</p>
+        </section>
+    </main>
+<!-- Add this button inside the header in your HTML files -->
+<button id="darkModeToggle">Toggle Dark Mode</button>
+
+    <footer>
+        <p>&copy; 2024 Your Website. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+<!-- Add this script at the bottom of your HTML files -->
+<script>
+    // JavaScript code for dark mode toggle
+    document.addEventListener('DOMContentLoaded', function () {
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+
+        // Check if dark mode preference is stored in local storage
+        const isDarkMode = localStorage.getItem('darkMode') === 'enabled';
+
+        // Set initial dark mode state
+        if (isDarkMode) {
+            enableDarkMode();
+        }
+
+        // Toggle dark mode on button click
+        darkModeToggle.addEventListener('click', function () {
+            if (isDarkMode) {
+                disableDarkMode();
+            } else {
+                enableDarkMode();
+            }
+        });
+
+        // Function to enable dark mode
+        function enableDarkMode() {
+            body.classList.add('dark-mode');
+            localStorage.setItem('darkMode', 'enabled');
+            isDarkMode = true;
+        }
+
+        // Function to disable dark mode
+        function disableDarkMode() {
+            body.classList.remove('dark-mode');
+            localStorage.setItem('darkMode', null);
+            isDarkMode = false;
+        }
+    });
+</script>
